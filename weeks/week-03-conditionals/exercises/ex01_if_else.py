@@ -1,61 +1,27 @@
 """
-Bài tập 01: if/elif/else cơ bản 🔀
+Bài tập 01: Phân loại và xếp hạng 🏆
 ====================================
-Mục tiêu: Viết câu lệnh điều kiện đúng cú pháp
+Mục tiêu: Sử dụng cấu trúc if/elif/else cơ bản
 """
 
-# TODO 1: Nhập tuổi, in ra nhóm tuổi
-# < 13: "Thiếu nhi"
-# 13-17: "Thiếu niên"
-# 18-64: "Người lớn"
-# >= 65: "Người cao tuổi"
-tuoi = int(input("Nhập tuổi: "))
-if tuoi < 13:
-    print("Thiếu nhi")
-elif tuoi <= 17:
-    print("Thiếu niên")
-elif tuoi <= 64:
-    print("Người lớn")
+# TODO: Nhập điểm trung bình (0-10)
+# Xếp loại: >= 9.0: Xuất sắc, >= 8.0: Giỏi, >= 6.5: Khá, >= 5.0: Trung bình, < 5.0: Yếu
+# Kiểm tra nếu điểm nhập vào không nằm trong khoảng 0-10 thì báo lỗi.
+
+diem = float(input("Nhập điểm trung bình của bạn (0-10): "))
+
+if diem < 0 or diem > 10:
+    print("Lỗi: Điểm phải nằm trong khoảng từ 0 đến 10!")
 else:
-    print("Người cao tuổi")
-
-# TODO 2: Nhập điểm (0-10), xếp loại:
-# >= 9: Xuất sắc, >= 8: Giỏi, >= 6.5: Khá, >= 5: TB, < 5: Yếu
-diem = float(input("Nhập điểm (0-10): "))
-if 9 <= diem <= 10:
-    print("Xuất sắc")
-elif diem >= 8:
-    print("Giỏi")
-elif diem >= 6.5:
-    print("Khá")
-elif diem >= 5:
-    print("TB")
-else:
-    print("Yếu")
-
-# TODO 3: Nhập năm, kiểm tra năm nhuận
-# Năm nhuận: chia hết cho 4, NHƯNG không chia hết cho 100,
-# TRỪ KHI chia hết cho 400
-# 2000 → nhuận, 1900 → không, 2024 → nhuận
-nam = int(input("Nhập năm cần kiểm tra: "))
-if (nam % 400 == 0) or (nam % 4 == 0 and nam % 100 != 0):
-    print(f"{nam} là năm nhuận")
-else:
-    print(f"{nam} không phải năm nhuận")
-
-# TODO 4 (Thử thách): Nhập 3 số, in ra số lớn nhất
-# KHÔNG dùng hàm max() — chỉ dùng if/elif/else
-a = float(input("Nhập số thứ nhất: "))
-b = float(input("Nhập số thứ hai: "))
-c = float(input("Nhập số thứ ba: "))
-
-if a >= b and a >= c:
-    lon_nhat = a
-elif b >= c:
-    # Ở đây ta đã biết a không phải lớn nhất (vì điều kiện trên sai)
-    # Nên chỉ cần so sánh b và c
-    lon_nhat = b
-else:
-    lon_nhat = c
-
-print(f"Số lớn nhất trong 3 số là: {lon_nhat}")
+    if diem >= 9.0:
+        xep_loai = "Xuất sắc"
+    elif diem >= 8.0:
+        xep_loai = "Giỏi"
+    elif diem >= 6.5:
+        xep_loai = "Khá"
+    elif diem >= 5.0:
+        xep_loai = "Trung bình"
+    else:
+        xep_loai = "Yếu"
+    
+    print(f"Với số điểm {diem}, xếp loại của bạn là: {xep_loai}")
