@@ -23,8 +23,11 @@ Chi tiết xem tại [`notes.md`](notes.md)
 Mở thư mục `exercises/` và hoàn thành theo thứ tự:
 
 1. **`ex01_if_else.py`** — Phân loại và xếp hạng
+   - *Bản chất:* Python kiểm tra từ trên xuống dưới. Khi gặp điều kiện nào đúng (`True`) đầu tiên, nó thực hiện khối lệnh đó rồi thoát ra ngay, không kiểm tra các phần `elif` hay `else` còn lại.
 2. **`ex02_logical.py`** — Toán tử logic kết hợp
+   - *Bản chất:* Gom nhiều điều kiện vào một dòng. `and` yêu cầu tất cả phải đúng, `or` chỉ cần một cái đúng. Giúp code gọn gàng hơn thay vì phải viết nhiều câu lệnh `if` rời rạc.
 3. **`ex03_nested.py`** — Điều kiện lồng nhau
+   - *Bản chất:* Luồng kiểm tra theo tầng (Cha - Con). Python chỉ kiểm tra điều kiện bên trong nếu điều kiện bao quanh nó đã thỏa mãn. Rất hữu ích cho các quy trình cần lọc nhiều bước như rút tiền ATM.
 
 > 💡 Mỗi file có TODO comment hướng dẫn chi tiết. Hãy thử trước khi xem solutions!
 

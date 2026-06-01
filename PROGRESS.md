@@ -35,12 +35,12 @@
 ## 🔵 Giai đoạn 2: Dữ liệu & Cấu trúc
 
 ### Tuần 04: Chuỗi (Strings)
-- [ ] Đọc README tuần 4
-- [ ] Hoàn thành `ex01_indexing.py` — Indexing & slicing
-- [ ] Hoàn thành `ex02_methods.py` — Phương thức chuỗi
-- [ ] Hoàn thành `ex03_fstrings.py` — f-string formatting
-- [ ] 🚀 Mini-Project: Text Analyzer
-- [ ] Commit & push lên GitHub
+- [x] Đọc README tuần 4
+- [x] Hoàn thành `ex01_indexing.py` — Indexing & slicing
+- [x] Hoàn thành `ex02_methods.py` — Phương thức chuỗi
+- [x] Hoàn thành `ex03_fstrings.py` — f-string formatting
+- [x] 🚀 Mini-Project: Text Analyzer
+- [x] Commit & push lên GitHub
 
 ### Tuần 05: List & Tuple
 - [ ] Đọc README tuần 5
