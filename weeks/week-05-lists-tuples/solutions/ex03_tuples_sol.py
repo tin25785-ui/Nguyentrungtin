@@ -1,28 +1,20 @@
-"""Lời giải Bài tập 03: Tuple & Unpacking"""
-# TODO 1
-coords = (3, 7)
-x, y = coords
-print(f"x={x}, y={y}")
-# coords[0] = 5  # TypeError: tuple không thay đổi được!
+"""Lời giải Bài tập 03: Tuple và Unpacking"""
 
-# TODO 2
-def tinh_thong_ke(numbers):
-    return min(numbers), max(numbers), sum(numbers) / len(numbers)
+# TODO 1: Tạo một tuple chứa tọa độ x, y
+point = (10, 20)
+print(f"Tọa độ ban đầu: {point}")
 
-nho, lon, tb = tinh_thong_ke([7, 9, 5, 8, 10])
-print(f"Min: {nho}, Max: {lon}, TB: {tb:.1f}")
+# TODO 2: Giải nén (Unpacking) tuple vào hai biến x và y
+x, y = point
+print(f"Biến x: {x}, Biến y: {y}")
 
-# TODO 3
-students = [("An", 8.5), ("Bình", 7.0), ("Châu", 9.2), ("Dũng", 6.5)]
-for ten, diem in students:
-    print(f"{ten}: {diem}")
-best = max(students, key=lambda s: s[1])
-print(f"Cao nhất: {best[0]} ({best[1]})")
-students.sort(key=lambda s: s[1], reverse=True)
-print(f"Giảm dần: {students}")
+# TODO 3: Tuple lồng nhau - Lưu thông tin sinh viên (Tên, (Toán, Lý, Hóa))
+student = ("Bình", (8, 9, 7))
+name, scores = student
+print(f"Sinh viên {name} có điểm trung bình là: {sum(scores)/len(scores):.2f}")
 
-# TODO 4
-names = ["A", "B", "C"]
-scores = [8, 9, 7]
-for i, (name, score) in enumerate(zip(names, scores), 1):
-    print(f"{i}. {name} — {score} điểm")
+# TODO 4: Chuyển đổi một List thành Tuple để bảo vệ dữ liệu (không cho sửa)
+colors_list = ["đỏ", "xanh", "vàng"]
+colors_tuple = tuple(colors_list)
+print(f"List đã chuyển thành Tuple: {colors_tuple}")
+# colors_tuple[0] = "tím"  # Dòng này sẽ gây lỗi vì Tuple là immutable

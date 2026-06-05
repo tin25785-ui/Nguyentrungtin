@@ -1,29 +1,21 @@
-"""Lời giải Bài tập 01: List"""
-# TODO 1
-mon_hoc = ["Toán", "Văn", "Anh", "Lý", "Hóa"]
-mon_hoc.append("Tin")
-mon_hoc.insert(2, "Sinh")
-mon_hoc.remove("Lý")
-print(mon_hoc)
+"""Lời giải Bài tập 01: Cơ bản về List (Thêm, Sửa, Xóa)"""
 
-# TODO 2
-diem = [7, 9, 5, 8, 10, 6, 4, 9]
-diem.sort()
-print(f"Sắp xếp: {diem}")
-print(f"Max: {max(diem)}, Min: {min(diem)}, TB: {sum(diem)/len(diem):.1f}")
-dat = len([d for d in diem if d >= 5])
-print(f"Số điểm đạt: {dat}/{len(diem)}")
+# TODO 1: Khởi tạo list trái cây
+fruits = ["táo", "chuối", "cam"]
+print(f"Danh sách ban đầu: {fruits}")
 
-# TODO 3
-n = int(input("Nhập n: "))
-nums = [float(input(f"Số {i+1}: ")) for i in range(n)]
-print(f"Tổng: {sum(nums)}, TB: {sum(nums)/len(nums):.1f}")
-print(f"Min: {min(nums)}, Max: {max(nums)}")
+# TODO 2: Thêm "xoài" vào cuối danh sách và "nho" vào vị trí đầu tiên
+fruits.append("xoài")
+fruits.insert(0, "nho")
+print(f"Sau khi thêm: {fruits}")
 
-# TODO 4
-nums = [1, 3, 2, 3, 1, 5, 2, 4]
-unique = []
-for n in nums:
-    if n not in unique:
-        unique.append(n)
-print(unique)
+# TODO 3: Thay đổi phần tử "chuối" thành "dâu tây"
+if "chuối" in fruits:
+    index_chuoi = fruits.index("chuối")
+    fruits[index_chuoi] = "dâu tây"
+print(f"Sau khi sửa: {fruits}")
+
+# TODO 4: Xóa phần tử cuối cùng bằng pop() và xóa "cam" bằng remove()
+item_cuoi = fruits.pop()
+fruits.remove("cam")
+print(f"Đã xóa '{item_cuoi}' và 'cam'. Danh sách còn lại: {fruits}")

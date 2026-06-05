@@ -7,14 +7,20 @@ Mục tiêu: Cắt list và viết comprehension
 # TODO 1: Cho numbers = list(range(1, 21))
 # Dùng slicing lấy: 5 số đầu, 5 số cuối, số ở vị trí chẵn
 numbers = list(range(1, 21))
-
+print(f"5 đầu: {numbers[:5]}")
+print(f"5 cuối: {numbers[-5:]}")
+print(f"Vị trí chẵn (index 0, 2, ...): {numbers[::2]}")
 
 # TODO 2: List comprehension cơ bản
 # a) Tạo list bình phương từ 1 đến 10: [1, 4, 9, ..., 100]
 # b) Tạo list số chẵn từ 0 đến 20
 # c) Cho words = ["hello", "world", "python"]
 #    Tạo list chữ in hoa: ["HELLO", "WORLD", "PYTHON"]
-
+squares = [x**2 for x in range(1, 11)]
+evens = [x for x in range(0, 21) if x % 2 == 0]
+words = ["hello", "world", "python"]
+upper_words = [w.upper() for w in words]
+print(f"Squares: {squares}\nEvens: {evens}\nUpper: {upper_words}")
 
 # TODO 3: Lọc với comprehension
 # Cho scores = [45, 78, 92, 56, 33, 88, 71, 95, 62, 50]
@@ -22,10 +28,15 @@ numbers = list(range(1, 21))
 # b) Lấy điểm < 50 (rớt)
 # c) Tạo list ("Đạt"/"Rớt") tương ứng với mỗi điểm
 scores = [45, 78, 92, 56, 33, 88, 71, 95, 62, 50]
-
+passed = [s for s in scores if s >= 60]
+failed = [s for s in scores if s < 50]
+labels = ["Đạt" if s >= 60 else "Rớt" for s in scores]
+print(f"Đạt: {passed}\nRớt: {failed}\nNhãn: {labels}")
 
 # TODO 4 (Thử thách): Ma trận chuyển vị
 # Cho matrix = [[1,2,3], [4,5,6], [7,8,9]]
 # Chuyển vị: [[1,4,7], [2,5,8], [3,6,9]]
 # Gợi ý: dùng list comprehension lồng
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+transpose = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+print(f"Ma trận chuyển vị: {transpose}")

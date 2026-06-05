@@ -10,7 +10,7 @@ pi = 3.14159
 print(f"int({pi}) = {int(pi)}")  # 3
 
 # TODO 3
-print(f"bool(0) = {bool(0)}")          # False
+print(f"bool(0) = {bool(0)}")          # Fa`lse
 print(f"bool(1) = {bool(1)}")          # True
 print(f'bool("") = {bool("")}')        # False
 print(f'bool("hello") = {bool("hello")}')  # True
