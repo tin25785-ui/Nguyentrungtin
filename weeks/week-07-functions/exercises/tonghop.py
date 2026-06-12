@@ -1,165 +1,296 @@
-"""
-Bài tập tổng hợp về Hàm (Functions) trong Python.
-Mục tiêu:
-- Định nghĩa và gọi hàm với `def`.
-- Hiểu tham số, đối số và `return`.
-- Dùng tham số mặc định và keyword arguments.
-- Hiểu phạm vi biến (scope): local vs global.
-- Viết docstring chuyên nghiệp.
-- So sánh sự khác biệt và giống nhau với C++ về hàm.
-"""
 
+# ===================================================
+# TỔNG HỢP HÀM (FUNCTIONS) TRONG PYTHON
+# ===================================================
+
+# Import thư viện toán học
+# Muốn dùng các hàm như sqrt(), pi, pow() thì phải import
 import math
 
-# --- 1. Định nghĩa và gọi hàm với `def`, tham số, đối số và `return` ---
 
-def chao_mung(ten):
-    """
-    In ra lời chào mừng tới một người cụ thể.
-    Đây là một hàm không có giá trị trả về (tương đương `void` trong C++).
+# ===================================================
+# 1. HÀM (FUNCTION)
+# ===================================================
 
-    Args:
-        ten (str): Tên của người cần chào mừng.
-    """
-    print(f"Xin chào, {ten}! Rất vui được gặp bạn.")
+# Tạo một hàm tên hello
+def hello():
 
-def tinh_tong(a, b):
-    """
-    Tính tổng của hai số.
-    Đây là một hàm có giá trị trả về (tương đương `int`, `float`... trong C++).
+    # In ra màn hình
+    print("Xin chào Python")
 
-    Args:
-        a (int/float): Số thứ nhất.
-        b (int/float): Số thứ hai.
 
-    Returns:
-        int/float: Tổng của a và b.
-    """
+# Gọi hàm để chạy
+hello()
+
+
+# ===================================================
+# 2. THAM SỐ (PARAMETER) VÀ ĐỐI SỐ (ARGUMENT)
+# ===================================================
+
+# name là THAM SỐ
+# Tham số là biến được khai báo khi tạo hàm
+def show_name(name):
+
+    print("Xin chào", name)
+
+
+# "Tin" là ĐỐI SỐ
+# Đối số là giá trị truyền vào khi gọi hàm
+show_name("Tin")
+
+
+# ===================================================
+# 3. RETURN
+# ===================================================
+
+# Hàm cộng hai số
+def add(a, b):
+
+    # Trả kết quả về nơi gọi hàm
     return a + b
 
-print("--- Ví dụ 1: Hàm cơ bản (def, tham số, return) ---")
-# Gọi hàm không có return
-chao_mung("Alice")
-chao_mung("Bob")
 
-# Gọi hàm có return và lưu kết quả
-ket_qua_tong = tinh_tong(10, 20)
-print(f"Tổng của 10 và 20 là: {ket_qua_tong}")
+# Gọi hàm
+# x sẽ nhận giá trị trả về
+x = add(5, 3)
 
-# So sánh với C++:
-# Trong C++, bạn sẽ khai báo `void chao_mung(string ten)` và `int tinh_tong(int a, int b)`.
-# Python linh hoạt hơn, không cần khai báo kiểu trả về tường minh trong định nghĩa hàm.
-# Hàm không có `return` sẽ tự động trả về `None` (tương tự `void` trong C++ không trả về giá trị nào cụ thể).
-ket_qua_chao = chao_mung("Charlie")
-print(f"Giá trị trả về của hàm chao_mung là: {ket_qua_chao} (kiểu {type(ket_qua_chao)})")
-print("Điều này tương tự như hàm `void` trong C++ không trả về giá trị nào cụ thể.")
+print(x)
+
+# Quá trình:
+#
+# add(5,3)
+#    ↓
+# 5 + 3 = 8
+#    ↓
+# return 8
+#    ↓
+# x = 8
 
 
-# --- 2. Tham số mặc định và keyword arguments ---
+# ===================================================
+# 4. PRINT KHÁC RETURN
+# ===================================================
 
-def thong_tin_nguoi_dung(ten, tuoi=30, thanh_pho="Hà Nội"):
+def sum_number(a, b):
+
+    # Chỉ in ra màn hình
+    print(a + b)
+
+
+y = sum_number(5, 3)
+
+# Hàm không có return
+# Python tự trả về None
+print(y)
+
+# Kết quả:
+#
+# 8
+# None
+
+
+# ===================================================
+# 5. THAM SỐ MẶC ĐỊNH (DEFAULT PARAMETER)
+# ===================================================
+
+def greet(name, message="Chào bạn"):
+
+    print(message, name)
+
+
+# Không truyền message
+# Python dùng giá trị mặc định
+greet("Tin")
+
+# Có truyền message
+# Python dùng giá trị mới
+greet("Tin", "Chúc bạn học tốt")
+
+
+# ===================================================
+# 6. KEYWORD ARGUMENTS
+# ===================================================
+
+def create_account(username, password, role="user"):
+
+    print("Username:", username)
+    print("Password:", password)
+    print("Role:", role)
+
+
+# Truyền dữ liệu theo tên biến
+# Không cần đúng thứ tự
+create_account(
+    password="123456",
+    username="Tin",
+    role="admin"
+)
+
+
+# ===================================================
+# 7. SCOPE (PHẠM VI BIẾN)
+# ===================================================
+
+# x được tạo ngoài hàm
+# => Global Variable
+x = 100
+
+
+def test():
+
+    # y được tạo trong hàm
+    # => Local Variable
+    y = 10
+
+    print(x)
+    print(y)
+
+
+test()
+
+# x là Global nên dùng được
+print(x)
+
+# print(y)
+# Lỗi vì y là Local
+# y chỉ tồn tại trong hàm test()
+
+
+# ===================================================
+# 8. TỪ KHÓA GLOBAL
+# ===================================================
+
+count = 0
+
+
+def increase():
+
+    # Cho phép sửa biến Global
+    global count
+
+    count += 1
+
+
+increase()
+increase()
+
+print(count)
+
+# Kết quả:
+# 2
+
+
+# ===================================================
+# 9. DOCSTRING
+# ===================================================
+
+def square(number):
     """
-    Hiển thị thông tin của một người dùng với các tham số mặc định.
+    Hàm tính bình phương của một số.
 
     Args:
-        ten (str): Tên của người dùng (tham số bắt buộc).
-        tuoi (int, optional): Tuổi của người dùng. Mặc định là 30.
-        thanh_pho (str, optional): Thành phố nơi người dùng sống. Mặc định là "Hà Nội".
-    """
-    print(f"Tên: {ten}, Tuổi: {tuoi}, Thành phố: {thanh_pho}")
-
-print("\n--- Ví dụ 2: Tham số mặc định và keyword arguments ---")
-# Gọi hàm chỉ với tham số bắt buộc (sử dụng giá trị mặc định cho tuổi và thành phố)
-thong_tin_nguoi_dung("Minh")
-
-# Gọi hàm ghi đè tham số mặc định theo vị trí
-thong_tin_nguoi_dung("Lan", 25)
-
-# Gọi hàm ghi đè tham số mặc định bằng keyword arguments (có thể thay đổi thứ tự)
-thong_tin_nguoi_dung("Hoa", thanh_pho="Đà Nẵng", tuoi=22)
-thong_tin_nguoi_dung(ten="Quang", tuoi=40) # Rõ ràng hơn khi dùng keyword arguments
-
-
-# --- 3. Phạm vi biến (scope): local vs global ---
-
-bien_global = "Tôi là biến toàn cục (global variable)"
-
-def ham_local_scope():
-    """
-    Hàm này minh họa biến cục bộ (local scope).
-    """
-    bien_local = "Tôi là biến cục bộ (local variable) bên trong ham_local_scope"
-    print(f"Trong ham_local_scope: {bien_local}")
-    print(f"Trong ham_local_scope, có thể truy cập biến global: {bien_global}")
-    # Nếu gán bien_global = "giá trị mới" ở đây mà không dùng `global`,
-    # Python sẽ tạo một biến local mới tên là bien_global, không ảnh hưởng đến biến global bên ngoài.
-
-def ham_thay_doi_global():
-    """
-    Hàm này minh họa cách thay đổi biến toàn cục bằng từ khóa `global`.
-    """
-    global bien_global # Khai báo rằng ta muốn làm việc với biến global
-    print(f"Trước khi thay đổi trong hàm: {bien_global}")
-    bien_global = "Giá trị của biến global đã bị thay đổi bởi ham_thay_doi_global"
-    print(f"Sau khi thay đổi trong hàm: {bien_global}")
-
-print("\n--- Ví dụ 3: Phạm vi biến (Scope) ---")
-print(f"Ngoài hàm (ban đầu): {bien_global}")
-
-ham_local_scope()
-# print(bien_local) # Lỗi: NameError, bien_local chỉ tồn tại trong ham_local_scope
-
-print(f"Ngoài hàm (sau ham_local_scope): {bien_global}") # bien_global không thay đổi
-
-ham_thay_doi_global()
-print(f"Ngoài hàm (sau ham_thay_doi_global): {bien_global}") # bien_global đã thay đổi
-
-# So sánh với C++:
-# Trong C++, biến khai báo ngoài hàm là global. Biến khai báo trong hàm là local.
-# Để thay đổi biến global trong C++, bạn chỉ cần truy cập nó (nếu nó không bị che bởi biến local cùng tên).
-# Python yêu cầu từ khóa `global` để gán lại giá trị cho biến global từ bên trong hàm,
-# nếu không, nó sẽ tạo một biến local mới.
-
-
-# --- 4. Docstring chuyên nghiệp ---
-
-def tinh_bmi(can_nang: float, chieu_cao: float) -> float:
-    """
-    Tính chỉ số BMI (Body Mass Index) của một người.
-
-    Args:
-        can_nang (float): Cân nặng của người đó tính bằng kilogram (kg).
-        chieu_cao (float): Chiều cao của người đó tính bằng mét (m).
+        number: Số cần tính.
 
     Returns:
-        float: Chỉ số BMI làm tròn đến 2 chữ số thập phân.
-
-    Raises:
-        ValueError: Nếu `can_nang` hoặc `chieu_cao` nhỏ hơn hoặc bằng 0.
-
-    Example:
-        >>> tinh_bmi(70, 1.75)
-        22.86
-        >>> tinh_bmi(60, 1.60)
-        23.44
+        Bình phương của số.
     """
-    if can_nang <= 0 or chieu_cao <= 0:
-        raise ValueError("Cân nặng và chiều cao phải là số dương.")
-    bmi = can_nang / (chieu_cao ** 2)
-    return round(bmi, 2)
 
-print("\n--- Ví dụ 4: Docstring chuyên nghiệp và sử dụng hàm với docstring ---")
-try:
-    bmi_an = tinh_bmi(70, 1.75)
-    print(f"BMI của An (70kg, 1.75m) là: {bmi_an}")
-    bmi_binh = tinh_bmi(65, 1.68)
-    print(f"BMI của Bình (65kg, 1.68m) là: {bmi_binh}")
+    return number ** 2
 
-    # Thử gọi với giá trị không hợp lệ để xem Raise hoạt động
-    # tinh_bmi(0, 1.70)
-except ValueError as e:
-    print(f"Lỗi khi tính BMI: {e}")
 
-# Bạn có thể xem docstring bằng cách:
-# print(tinh_bmi.__doc__)
-# help(tinh_bmi)
+print(square(5))
+
+
+# ===================================================
+# 10. HÀM TÍNH GIAI THỪA
+# ===================================================
+
+def factorial(n):
+
+    result = 1
+
+    for i in range(1, n + 1):
+
+        result *= i
+
+    return result
+
+
+print(factorial(5))
+
+# Quá trình:
+#
+# 1 * 1 = 1
+# 1 * 2 = 2
+# 2 * 3 = 6
+# 6 * 4 = 24
+# 24 * 5 = 120
+
+
+# ===================================================
+# 11. IMPORT MATH
+# ===================================================
+
+# Căn bậc hai
+print(math.sqrt(25))
+
+# Lũy thừa
+print(math.pow(2, 3))
+
+# Số PI
+print(math.pi)
+
+# Làm tròn lên
+print(math.ceil(4.2))
+
+# Làm tròn xuống
+print(math.floor(4.9))
+
+
+# ===================================================
+# KIẾN THỨC CẦN NHỚ
+# ===================================================
+
+# def
+# -> Dùng để tạo hàm
+
+# Function
+# -> Đoạn code thực hiện một công việc
+
+# Parameter (Tham số)
+# -> Biến khai báo trong hàm
+# -> Giống như cái hộp trống
+
+# Argument (Đối số)
+# -> Giá trị truyền vào hàm
+# -> Giống như đồ bỏ vào hộp
+
+# print
+# -> Chỉ in ra màn hình
+
+# return
+# -> Trả kết quả về để dùng tiếp
+
+# Default Parameter
+# -> Tham số có giá trị mặc định
+
+# Keyword Arguments
+# -> Truyền dữ liệu theo tên biến
+
+# Local Variable
+# -> Biến tạo trong hàm
+# -> Chỉ dùng trong hàm
+
+# Global Variable
+# -> Biến tạo ngoài hàm
+# -> Dùng được nhiều nơi
+
+# global
+# -> Cho phép sửa biến Global trong hàm
+
+# Docstring
+# -> Mô tả chức năng của hàm
+
+# import math
+# -> Nạp thư viện toán học
+

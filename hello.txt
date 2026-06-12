@@ -1,0 +1,3 @@
+Xin chào Python
+Tôi đang học xử lý file
+Đây là dòng được thêm
