@@ -1,3 +1,7 @@
+"""
+Bài tập tổng hợp: Xử lý File, CSV, JSON và Pathlib trong Python.
+Mục tiêu: Củng cố kỹ năng đọc/ghi dữ liệu an toàn và hiệu quả.
+"""
 # ==================================================
 # XỬ LÝ FILE TRONG PYTHON
 # (Giống ifstream/ofstream trong C++)
@@ -22,11 +26,14 @@ with open("hello.txt", "w", encoding="utf-8") as file:
 # 2. ĐỌC FILE (r = read)
 # --------------------------------------------------
 
-with open("hello.txt", "r", encoding="utf-8") as file:
-    data = file.read()
-
-print("Nội dung file:")
-print(data)
+try:
+    with open("hello.txt", "r", encoding="utf-8") as file:
+        data = file.read()
+    print("Nội dung file:")
+    print(data)
+except FileNotFoundError:
+    print("Lỗi: File hello.txt không tồn tại.")
+    data = ""
 
 
 # --------------------------------------------------
@@ -43,10 +50,51 @@ with open("hello.txt", "a", encoding="utf-8") as file:
 # ĐỌC LẠI ĐỂ XEM KẾT QUẢ
 # --------------------------------------------------
 
-with open("hello.txt", "r", encoding="utf-8") as file:
-    print("\nSau khi thêm:")
-    print(file.read())
+try:
+    with open("hello.txt", "r", encoding="utf-8") as file:
+        print("\nSau khi thêm:")
+        print(file.read())
+except FileNotFoundError:
+    print(" Không thể đọc file sau khi ghi thêm.")
 
+
+# --------------------------------------------------
+# 4. MỞ FILE ĐÃ CÓ VÀ THỰC HIỆN CÁC THAO TÁC ĐỌC
+# --------------------------------------------------
+print("\n==================================================")
+print("THAO TÁC VỚI FILE ĐÃ CÓ (hello.txt)")
+print("==================================================")
+
+file_to_read = "hello.txt"
+
+# Đọc toàn bộ nội dung file
+print("\n--- Đọc toàn bộ nội dung file ---")
+try:
+    with open(file_to_read, "r", encoding="utf-8") as file:
+        full_content = file.read()
+        print(full_content)
+except FileNotFoundError:
+    print(f"❌ Lỗi: File '{file_to_read}' không tồn tại.")
+
+# Đọc file theo từng dòng
+print("\n--- Đọc file theo từng dòng ---")
+try:
+    with open(file_to_read, "r", encoding="utf-8") as file:
+        for i, line in enumerate(file, 1):
+            print(f"Dòng {i}: {line.strip()}") # .strip() để loại bỏ ký tự xuống dòng
+except FileNotFoundError:
+    print(f" Lỗi: File '{file_to_read}' không tồn tại.")
+
+# Đọc tất cả các dòng vào một danh sách
+print("\n--- Đọc tất cả các dòng vào một danh sách ---")
+try:
+    with open(file_to_read, "r", encoding="utf-8") as file:
+        all_lines = file.readlines()
+        print(f"Số lượng dòng: {len(all_lines)}")
+        for i, line in enumerate(all_lines, 1):
+            print(f"Dòng {i} (từ list): {line.strip()}")
+except FileNotFoundError:
+    print(f" Lỗi: File '{file_to_read}' không tồn tại.")
 
 # ==================================================
 # CSV (DỮ LIỆU DẠNG BẢNG)
@@ -77,13 +125,14 @@ with open("students.csv", "w", newline="", encoding="utf-8") as file:
 
 print("\nĐọc file CSV")
 
-with open("students.csv", "r", encoding="utf-8") as file:
-
-    reader = csv.reader(file)
-
-    for row in reader:
-        print(row)
-
+try:
+    with open("students.csv", "r", encoding="utf-8") as file:
+        # Sử dụng DictReader để truy cập qua tên cột, code sẽ rõ ràng hơn
+        reader = csv.DictReader(file)
+        for row in reader:
+            print(f"Học sinh: {row['Tên']} - Điểm: {row['Điểm']}")
+except FileNotFoundError:
+    print(" File students.csv chưa được tạo.")
 
 # ==================================================
 # JSON (GIỐNG DICTIONARY)
@@ -117,17 +166,18 @@ with open("student.json", "w", encoding="utf-8") as file:
 # ĐỌC JSON
 # --------------------------------------------------
 
-with open("student.json", "r", encoding="utf-8") as file:
-    data = json.load(file)
+try:
+    with open("student.json", "r", encoding="utf-8") as file:
+        data = json.load(file)
 
-print("\nĐọc JSON")
-print(data)
-
-print(data["name"])
-print(data["age"])
-print(data["score"])
-
-
+    print("\nĐọc JSON")
+    print(data)
+    print(f"Tên: {data['name']}, Tuổi: {data['age']}, Điểm: {data['score']}")
+except FileNotFoundError:
+    print(" File student.json không tồn tại.")
+except json.JSONDecodeError:
+    print("Lỗi: Định dạng file JSON không hợp lệ.")
+    
 # ==================================================
 # PATHLIB (QUẢN LÝ ĐƯỜNG DẪN)
 # ==================================================
@@ -136,27 +186,27 @@ from pathlib import Path
 
 # Tạo đối tượng file
 
-file = Path("hello.txt")
+file_path = Path("hello.txt")
 
 # File có tồn tại không
 
 print("\nFile có tồn tại không?")
-print(file.exists())
+print(f"{file_path.name}: {'Có' if file_path.exists() else 'Không'}")
 
 # Tên file
 
 print("\nTên file:")
-print(file.name)
+print(file_path.name)
 
 # Phần mở rộng
 
 print("\nĐuôi file:")
-print(file.suffix)
+print(file_path.suffix)
+
 
 # Đường dẫn
 
-print("\nĐường dẫn:")
-print(file)
+print(f"\nĐường dẫn tuyệt đối: {file_path.absolute()}")
 
 
 # ==================================================
