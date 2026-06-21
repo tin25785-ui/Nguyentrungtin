@@ -104,7 +104,8 @@ students_info = {
         "diem": 9.0
     }
 }
-
+#Dictionary lồng nhau là một Dictionary chứa các Dictionary khác bên trong.
+#  Cấu trúc này giúp lưu trữ nhiều đối tượng và thông tin chi tiết của từng đối tượng một cách rõ ràng và dễ quản lý.
 print("\nThông tin học sinh:")
 
 for ten, thongtin in students_info.items():

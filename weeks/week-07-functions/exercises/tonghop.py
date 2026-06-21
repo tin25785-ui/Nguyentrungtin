@@ -293,4 +293,23 @@ print(math.floor(4.9))
 
 # import math
 # -> Nạp thư viện toán học
+# ham truy van long Hàm lồng nhau dùng để làm gì?
 
+#Hàm lồng nhau giúp chia một công việc lớn thành nhiều công việc nhỏ hơn. Điều này giúp chương trình dễ đọc, dễ quản lý và tránh việc các hàm nhỏ bị sử dụng ở những nơi không cần thiết.
+
+#Hàm lồng nhau là một hàm được khai báo bên trong một hàm khác. Hàm bên trong thường chỉ được sử dụng trong hàm bên ngoài và giúp chương trình gọn gàng, dễ quản lý hơn.
+
+def family():
+
+    print("Gia đình")
+
+    def father():
+        print("Bố")
+
+    def mother():
+        print("Mẹ")
+
+    father()
+    mother()
+
+family()

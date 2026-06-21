@@ -122,3 +122,20 @@ Dùng list lồng nhau tạo và in bảng cửu chương 5×5.
 > 1. **List là mutable** — có thể thay đổi sau khi tạo (khác string)
 > 2. **append()** nhanh hơn **insert()** — dùng append khi có thể
 > 3. **List comprehension** ngắn hơn và thường nhanh hơn vòng lặp for
+strip
+lower
+upper
+title
+replace
+count
+find
+split
+startswith
+endswith
+kiem tra
+isalpha
+isdigit
+isalnum
+islower
+isupper
+isspace

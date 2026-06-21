@@ -49,3 +49,20 @@ Xem chi tiết tại [`mini-project/README.md`](mini-project/README.md)
 - [ ] Hoàn thành Mini-Project
 - [ ] Commit code lên GitHub
 - [ ] Đánh dấu trong PROGRESS.md
+strip
+lower
+upper
+title
+replace
+count
+find
+split
+startswith
+endswith
+kiem tra
+isalpha
+isdigit
+isalnum
+islower
+isupper
+isspace

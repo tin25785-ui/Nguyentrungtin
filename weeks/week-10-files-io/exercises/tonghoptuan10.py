@@ -74,7 +74,7 @@ try:
         full_content = file.read()
         print(full_content)
 except FileNotFoundError:
-    print(f"❌ Lỗi: File '{file_to_read}' không tồn tại.")
+    print(f" Lỗi: File '{file_to_read}' không tồn tại.")
 
 # Đọc file theo từng dòng
 print("\n--- Đọc file theo từng dòng ---")

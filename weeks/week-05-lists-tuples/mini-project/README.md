@@ -18,3 +18,13 @@ App todo terminal: thêm/xóa/đánh dấu hoàn thành/hiển thị.
 
 ## Nộp bài
 Hoàn thành code và commit lên GitHub với message: `"Complete mini-project week 05"`
+append     -> thêm cuối
+insert     -> thêm đầu/chèn
+index      -> tìm vị trí
+remove     -> xóa theo giá trị
+pop        -> xóa cuối
+count      -> đếm
+len        -> số phần tử
+sort       -> sắp xếp
+reverse    -> đảo ngược
+clear      -> xóa hết

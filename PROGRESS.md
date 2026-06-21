@@ -77,12 +77,12 @@
 ---
 
 ## 🏆 Tuần 09: Dự án giữa kỳ
-- [ ] Chọn đề tài (Quiz / Expense / Adventure)
-- [ ] Lên kế hoạch và phác thảo cấu trúc
-- [ ] Code chức năng chính
-- [ ] Test và sửa bug
-- [ ] Viết README cho project
-- [ ] Commit & push lên GitHub
+- [x] Chọn đề tài (Quiz / Expense / Adventure)
+- [x] Lên kế hoạch và phác thảo cấu trúc
+- [x] Code chức năng chính
+- [x] Test và sửa bug
+- [x] Viết README cho project
+- [x] Commit & push lên GitHub
 
 ---
 
